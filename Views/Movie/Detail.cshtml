@@ -4,3 +4,6 @@
 
 <p>Duracion: @Model.Minutes</p>
 <p>@Model.Review</p>
+
+<button>Elimnar</button>
+<a asp-action="Delete" asp-route-code="@Model.Code" onclick="alert('Seguro de Eliminar Registro?')">Elimnar Pelicula</a>

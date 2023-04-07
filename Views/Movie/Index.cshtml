@@ -8,8 +8,9 @@
 <ul>
     @foreach (var item in Model)
     {
-       <li><a asp-action="Detail" asp-route-id="@item.Code">@item.Name</a></li> 
+       <li><a asp-action="Detail" asp-route-code="@item.Code">@item.Name</a></li> 
+       <!--aca dice item.code porque usa el Get de Service-->
     }
 </ul>
 
-<a asp-action="Create">Nueva Peli</a>
+<a asp-action="Create">Nueva Peli</a>  <!-- esto va para el servicio create-->

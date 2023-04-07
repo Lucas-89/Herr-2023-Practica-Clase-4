@@ -21,9 +21,9 @@ public class MovieController : Controller
         return View(model);
     }
 
-    public IActionResult Detail(string id)
+    public IActionResult Detail(string code)
     {
-        var model = MovieService.Get(id);
+        var model = MovieService.Get(code); //llama al servicio get
         return View(model);
     }
 
@@ -40,6 +40,12 @@ public class MovieController : Controller
         }
         MovieService.Add(movie);
 
+        return RedirectToAction("Index");
+    }
+    
+    public IActionResult Delete(string code){
+        MovieService.Delete(code);
+        
         return RedirectToAction("Index");
     }
 }
