@@ -1,0 +1,15 @@
+@model List<Movie>
+    
+<div class="text-center">
+    <h1 class="display-4">Peliculas</h1>
+   
+</div>
+
+<ul>
+    @foreach (var item in Model)
+    {
+       <li><a asp-action="Detail" asp-route-id="@item.Code">@item.Name</a></li> 
+    }
+</ul>
+
+<a asp-action="Create">Nueva Peli</a>
