@@ -42,7 +42,29 @@ public class MovieController : Controller
 
         return RedirectToAction("Index");
     }
-    
+
+    public IActionResult Edit(string code){
+        var model = MovieService.Get(code);
+        return View(model);
+    }
+
+    [HttpPost]
+    //cambie Edit por Index
+    public IActionResult Index(string code){ //aca deberia llamar al servicio de Editar usando el modelo Movie... el MovieService Edit ponele
+      // var movieToEdit = MovieService.Get(code);
+      //  MovieService.Edit(movieToEdit);
+      
+        if (!ModelState.IsValid)
+        {
+           return View("Edit");
+        }
+        else{
+        //var movieToEdit = MovieService.Get(code);
+        MovieService.Edit(code);
+        return RedirectToAction("Index");
+        }
+    }
+
     public IActionResult Delete(string code){
         MovieService.Delete(code);
         

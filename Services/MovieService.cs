@@ -37,6 +37,16 @@ public static class MovieService{
         }
     }
 
+    public static void Edit(string movieToEdit){
+        var movieSinEditar =Movies.FirstOrDefault(x=>x.Code==movieToEdit);
+        
+        
+           // borrar el original y añadir el nuevo
+            Movies.Remove(movieSinEditar);
+          //  Movies.Add(movieToEdit);
+        
+    }
+
     
 
 }

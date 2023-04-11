@@ -1,9 +1,25 @@
 @model Movie
-
+@*
 <h2>@Model.Name</h2>
 
 <p>Duracion: @Model.Minutes</p>
 <p>@Model.Review</p>
 
-<button>Elimnar</button>
 <a asp-action="Delete" asp-route-code="@Model.Code" onclick="alert('Seguro de Eliminar Registro?')">Elimnar Pelicula</a>
+<a asp-action="Edit" asp-route-code="@Model.Code">Editar</a>
+*@
+<div class="card mb-3">
+  @*<img src="..." class="card-img-top" alt="...">*@
+  <div class="card-body">
+        <h1 class="card-title">@Model.Name</h1>
+        <div>
+            <p>Categoria: @Model.Category</p>
+            <p>Duracion: @Model.Minutes</p>
+        </div>
+            <p class="card-text">@Model.Review</p>
+        <p>
+            <a asp-action="Edit" class="btn btn-secondary" asp-route-code="@Model.Code">Editar</a>
+            <a asp-action="Delete" asp-route-code="@Model.Code" class="btn btn-danger" onclick="alert('Seguro de Eliminar Registro?')">Elimnar Pelicula</a>
+        </p>
+  </div>
+</div>
